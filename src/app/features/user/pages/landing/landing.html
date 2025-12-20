@@ -1,0 +1,33 @@
+<div class="flex justify-center mt-6">
+  <div class="inline-flex bg-gray-100 rounded-full p-1">
+    <button
+      (click)="mode = 'signup'"
+      [attr.data-active]="mode === 'signup'"
+      class="px-4 py-1.5 text-sm rounded-full transition
+             text-gray-600 hover:text-gray-900
+             data-[active=true]:bg-white
+             data-[active=true]:text-blue-600
+             data-[active=true]:shadow">
+      Signup
+    </button>
+
+    <button
+      (click)="mode = 'login'"
+      [attr.data-active]="mode === 'login'"
+      class="px-4 py-1.5 text-sm rounded-full transition
+             text-gray-600 hover:text-gray-900
+             data-[active=true]:bg-white
+             data-[active=true]:text-blue-600
+             data-[active=true]:shadow">
+      Login
+    </button>
+  </div>
+</div>
+
+@if(mode === 'signup'){
+  <app-register></app-register>
+} @else {
+  <app-login></app-login>
+}
+
+

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {API_BASE_URL} from '../../../core/api';
 import {UserRequest} from '../models/user.model';
+import {LoginRequest} from '../models/login.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,4 +15,7 @@ export class User {
     return this.http.post(`${API_BASE_URL}/user/register`,request);
   }
 
+  loginUser(request: LoginRequest){
+    return this.http.post(`${API_BASE_URL}/auth/login`,request);
+  }
 }
