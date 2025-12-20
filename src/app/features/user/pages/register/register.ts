@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Output} from '@angular/core';
 import {ReactiveFormsModule, Validators, FormBuilder} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {User} from '../../services/user';
@@ -10,6 +10,8 @@ import {User} from '../../services/user';
   styleUrl: './register.css',
 })
 export class Register {
+
+  @Output() registerSuccess = new EventEmitter<string>();
 
   constructor(private formBuilder: FormBuilder,
               private userService: User,private cdRef: ChangeDetectorRef) {}
@@ -41,6 +43,7 @@ export class Register {
           this.errorMessage = '';
           console.log(response);
           this.registerForm.reset();
+          this.registerSuccess.emit(this.successMessage);
         },
         error: (err) => {
           console.log(err);

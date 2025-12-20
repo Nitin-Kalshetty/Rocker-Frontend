@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component} from '@angular/core';
+import {ChangeDetectorRef, Component, Input} from '@angular/core';
 import {ReactiveFormsModule, Validators, FormBuilder} from '@angular/forms';
 import {User} from '../../services/user';
 import {CommonModule} from '@angular/common';
@@ -11,6 +11,10 @@ import {CommonModule} from '@angular/common';
   styleUrl: './login.css',
 })
 export class Login {
+
+  @Input() successMessage = '';
+
+
 
   constructor(private formBuilder: FormBuilder,
               private userService: User,private cdRef: ChangeDetectorRef) {}
